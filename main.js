@@ -55,6 +55,7 @@ fetch(postAPI)
         data: data
     });
     alert ("Điểm danh châm cứu thành công !")
+    location.reload();
       })
       $("#btn-xuatvien").click(function(){
         var url ="https://script.google.com/macros/s/AKfycbws243WFFTpVpRNWwrGEjrcWVKlb_4tnlT9BIq_-MpmPCfobbvdu_YehviKypTfZzH2Pw/exec"
@@ -74,7 +75,8 @@ fetch(postAPI)
         dataType: "json",
         data: xuatvien
     });
-    alert ("Ghi xuất viện thành công !")
+    alert ("Ghi xuất viện thành công !");
+    location.reload();
       })
       $("#btn-nhapvien").click(function(){
         var url ="https://script.google.com/macros/s/AKfycbws243WFFTpVpRNWwrGEjrcWVKlb_4tnlT9BIq_-MpmPCfobbvdu_YehviKypTfZzH2Pw/exec"
@@ -94,7 +96,8 @@ fetch(postAPI)
         dataType: "json",
         data: nhapvien
     });
-    alert ("Ghi nhập viện thành công !")
+    alert ("Ghi nhập viện thành công !");
+    location.reload();
       })
     }
     )

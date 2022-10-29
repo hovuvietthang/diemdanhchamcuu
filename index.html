@@ -16,10 +16,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>BẢNG ĐIỂM DANH CHÂM CỨU TẠI KHOA</h1>
+        <h1 class="tieudeweb">ĐIỂM DANH CHÂM CỨU</h1>
     </div>
     <div class="container">
-      <input id="tags" class="form-control"type="search" placeholder="Họ và tên" required spellcheck="false" autocomplete="off">
+      <input id="tags" class="form-control"type="search" placeholder="Họ và tên bệnh nhân" required spellcheck="false" autocomplete="off">
       <script>
         var inforAPI = "https://script.google.com/macros/s/AKfycbxH-wJUqFE_2Q9Fta3DpgsUsqkRxQUi3kjQJjg_oTHbTF_s0i0hCuOCTlijU_FgEG_cDg/exec";
 fetch(inforAPI)
@@ -43,27 +43,27 @@ source: alivableTag
 });
     </script>
         <div class="container btn">
-            <button type="submit" id="btn-tracuu" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#infor-benh-nhan">Tra cứu</button>
+            <button type="submit" id="btn-tracuu" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#infor-benh-nhan">TRA CỨU THÔNG TIN</button>
         </div>
     </div>
     <div class="offcanvas offcanvas-start" id="infor-benh-nhan">
         <div class="offcanvas-header">
-          <h4 class="offcanvas-title">Thông tin bệnh nhân</h4>
+          <h4 class="offcanvas-title">THÔNG TIN BỆNH NHÂN</h4>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
-          <kbd>Họ và tên : </kbd><p id="fullname"></p>
-          <kbd>Tuổi : </kbd><p id="yearsold"></p>
-          <kbd>Giới tính : </kbd><p id="gender"></p>
-          <kbd>Ngày nhập viện : </kbd><p id="dayon"></p>
-          <kbd>Tình trạng hiện tại : </kbd><p id="dien_bien"></p>
-          <kbd>Lịch sử điều trị : </kbd><p id="days"></p>
-          <kbd>Bác sĩ điều trị </kbd><p id="bacsi"></p>
-
-          <button title="nút điểm danh diều trị" class="btn btn-primary" type="button" id="btn-diemdanh"></button>
-            <br><br>
-          <button title="nút xuất viện"class="btn btn-primary" type="button" id="btn-xuatvien"></button>
-          
+          <div class="infor-name"><h6>1) Họ và tên : </h6><p  class="infor-text text-uppercase" id="fullname"></p></div>
+          <div class="infor-name"><h6>2) Tuổi : </h6><p  class="infor-text" id="yearsold"></p></div>
+          <div class="infor-name"><h6>3) Giới tính : </h6><p  class="infor-text text-uppercase" id="gender"></p></div>
+          <div class="infor-name"><h6>4) Ngày nhập viện : </h6><p  class="infor-text" id="dayon"></p></div>
+          <div class="infor-name"><h6>5) Tình trạng hiện tại : </h6><p  class="infor-text" id="dien_bien"></p></div>
+          <div class="infor-name"><h6>6) Bác sĩ điều trị : </h6><p  class="infor-text" id="bacsi"></p></div>
+          <div class="infor-name"><h6>7) Lịch sử điều trị : </h6></div><p  class="infor-text" id="days"></p>
+          <div class="infor-btn">
+            <button title="nút điểm danh diều trị" class="btn btn-success btn-check-info" type="button" id="btn-diemdanh"></button>
+            <button title="nút xuất viện"class="btn btn-danger btn-check-info " type="button" id="btn-xuatvien"></button>
+            <button title="Nhập viện lại"class="btn btn-primary btn-check-info" type="button" id="btn-nhapvien"></button>
+          </div>
         </div>
         <script src="./main.js"></script>
 </body>

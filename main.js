@@ -4,8 +4,9 @@ $("#btn")
 var d = new Date;
 var m = d.getMonth() +1 ;
 console.log(d.getMonth())
-$("#btn-diemdanh").text("Điểm danh điều trị ngày " + d.getDate()+ "/" + m + "/" + d.getFullYear());
+$("#btn-diemdanh").text("Châm cứu " + d.getDate()+ "/" + m + "/" + d.getFullYear());
 $("#btn-xuatvien").text("Xuất viện " + d.getDate()+ "/" + m + "/" + d.getFullYear());
+$("#btn-nhapvien").text("Nhập viện " + d.getDate()+ "/" + m + "/" + d.getFullYear());
 
 // lấy ID
 $("#btn-tracuu").click(function(){
@@ -33,6 +34,7 @@ fetch(postAPI)
       $("#gender").text(post[maID-1].gioi_tinh)
       $("#dayon").text(post[maID-1].ngay_nhap_vien)
       $("#dien_bien").text(post[maID-1].nhap_xuat)
+      $("#days").text(post[maID-1].lich_su)
       $("#bacsi").text(post[maID-1].phan_loai)
       $("#btn-diemdanh").click(function(){
         var url ="https://script.google.com/macros/s/AKfycbws243WFFTpVpRNWwrGEjrcWVKlb_4tnlT9BIq_-MpmPCfobbvdu_YehviKypTfZzH2Pw/exec"
@@ -41,9 +43,9 @@ fetch(postAPI)
     var data = {
         id: maID,
         ho_va_ten: post[maID-1].ho_va_ten,
-        ngay_cham: d.getDate()+ "/" + m + "/" + d.getFullYear(),
+        ngay_cham: "Châm cứu " + d.getDate()+ "/" + m + "/" + d.getFullYear(),
         time : d.getHours() + ":" + d.getMinutes(),
-        xuat_vien : "điều trị"
+        cham_cuu : "Điều trị"
     };
     
     $.ajax({
@@ -52,7 +54,7 @@ fetch(postAPI)
         dataType: "json",
         data: data
     });
-    alert ("Điểm danh thành công !")
+    alert ("Điểm danh châm cứu thành công !")
       })
       $("#btn-xuatvien").click(function(){
         var url ="https://script.google.com/macros/s/AKfycbws243WFFTpVpRNWwrGEjrcWVKlb_4tnlT9BIq_-MpmPCfobbvdu_YehviKypTfZzH2Pw/exec"
@@ -61,9 +63,9 @@ fetch(postAPI)
     var xuatvien = {
         id: maID,
         ho_va_ten: post[maID-1].ho_va_ten,
-        ngay_cham: d.getDate()+ "/" + m + "/" + d.getFullYear(),
+        ngay_cham: "Xuất viện " + d.getDate()+ "/" + m + "/" + d.getFullYear(),
         time : d.getHours() + ":" + d.getMinutes(),
-        xuat_vien : "xuất viện"
+        xuat_vien : "Xuất viện "
     };
     
     $.ajax({
@@ -72,7 +74,27 @@ fetch(postAPI)
         dataType: "json",
         data: xuatvien
     });
-    alert ("Xuất viện")
+    alert ("Ghi xuất viện thành công !")
+      })
+      $("#btn-nhapvien").click(function(){
+        var url ="https://script.google.com/macros/s/AKfycbws243WFFTpVpRNWwrGEjrcWVKlb_4tnlT9BIq_-MpmPCfobbvdu_YehviKypTfZzH2Pw/exec"
+        
+    
+    var nhapvien = {
+        id: maID,
+        ho_va_ten: post[maID-1].ho_va_ten,
+        ngay_cham: "Tái nhập viện " + d.getDate()+ "/" + m + "/" + d.getFullYear(),
+        time : d.getHours() + ":" + d.getMinutes(),
+        nhap_vien : "Nhập viện "
+    };
+    
+    $.ajax({
+        url: url,
+        method: "GET",
+        dataType: "json",
+        data: nhapvien
+    });
+    alert ("Ghi nhập viện thành công !")
       })
     }
     )

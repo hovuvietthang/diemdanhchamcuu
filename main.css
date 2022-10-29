@@ -1218,3 +1218,12 @@ p {
 	margin-left: 42%;
 	background-color: #36363680;
 }
+.btn-cl-ds{
+	margin: 2px;
+}
+#date-filter{
+	height: 50px;
+	width: auto;
+	margin: 5px;
+	padding: 5px;
+}

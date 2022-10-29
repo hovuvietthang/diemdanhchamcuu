@@ -10,6 +10,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="./main.css" rel="stylesheet">
 
+
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <title>ĐIỂM DANH</title>
@@ -44,8 +45,10 @@ source: alivableTag
     </script>
         <div class="container btn">
             <button type="submit" id="btn-tracuu" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#infor-benh-nhan">TRA CỨU THÔNG TIN</button>
+            <button class="btn btn-primary" id="btn-xuat-danh-sach" data-bs-toggle="offcanvas"data-bs-target="#xuat-danh-sach">XUẤT DANH SÁCH</button>
         </div>
     </div>
+    <!-- DIV THÔNG TIN -->
     <div class="offcanvas offcanvas-start" id="infor-benh-nhan">
         <div class="offcanvas-header">
           <h4 class="offcanvas-title">THÔNG TIN BỆNH NHÂN</h4>
@@ -66,6 +69,27 @@ source: alivableTag
             <button title="Đóng bảng thông tin"data-bs-dismiss="offcanvas" class="btn btn-dark btn-check-info btn-close btn-dong2" type="button" id="btn-dong2"></button>
           </div>
         </div>
+    </div>
+    <!-- DIV Thông tin -->
+    <!-- DIV LẤY DANH SÁCH -->
+    <div class="offcanvas offcanvas-start container offcanvas-body" id="xuat-danh-sach">
+      <h4 class="offcanvas-title">LẤY DANH SÁCH</h4>
+      <input class="form-control" id="date-filter" placeholder="ngày/tháng/năm" type="date"/>
+      <button class="btn btn-success btn-cl-ds" id="btn-ds-dieutri">ĐIỀU TRỊ</button>
+      <div class="container" id="danh-sach-dieu-tri">
+        <p id="p-ds-dieutri"></p>
+      </div>
+      <button class="btn btn-danger btn-cl-ds" id="btn-ds-nhapvien">NHẬP VIỆN</button>
+      <div class="container" id="danh-sach-nhap-vien">
+        <p id="p-ds-nhapvien"></p>
+      </div>
+      <button class="btn btn-primary btn-cl-ds" id="btn-ds-xuatvien">XUẤT VIỆN</button>
+      <div class="container" id="danh-sach-xuat-vien">
+        <p id="p-ds-xuatvien"></p>
+      </div>
+    </div>
+    <!-- DIV LẤY DANH SÁCH CHÂM CỨU -->
         <script src="./main.js"></script>
+        <script src="./laydanhsach.js"></script>
 </body>
 </html>

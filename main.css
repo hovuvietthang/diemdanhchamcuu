@@ -1222,8 +1222,17 @@ p {
 	margin: 2px;
 }
 #date-filter{
-	height: 50px;
-	width: auto;
-	margin: 5px;
+	position: relative;
+	display: block;
+	height: 60px;
+	width: 100%;
+	margin: 5px 0;
 	padding: 5px;
+}
+#btn-xuat-danh-sach, #btn-tracuu{
+	width: 80%;
+	margin: 3px;
+}
+.div-xuat-ds{
+	display: block;
 }

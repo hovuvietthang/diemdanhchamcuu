@@ -73,18 +73,24 @@ source: alivableTag
     <!-- DIV Thông tin -->
     <!-- DIV LẤY DANH SÁCH -->
     <div class="offcanvas offcanvas-start container offcanvas-body" id="xuat-danh-sach">
-      <h4 class="offcanvas-title">LẤY DANH SÁCH</h4>
-      <input class="form-control" id="date-filter" placeholder="ngày/tháng/năm" type="date"/>
+      <div class="offcanvas-header">
+        <h4 class="offcanvas-title">LẤY DANH SÁCH</h4>
+      <button id="" type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+      <div class="container-fluid">
+        <input class="form-control" id="date-filter" placeholder="dd/mm/yyyy" type="date"/>
+      </div>
+      
       <button class="btn btn-success btn-cl-ds" id="btn-ds-dieutri">ĐIỀU TRỊ</button>
-      <div class="container" id="danh-sach-dieu-tri">
+      <div class="container div-xuat-ds" id="danh-sach-dieu-tri">
         <p id="p-ds-dieutri"></p>
       </div>
       <button class="btn btn-danger btn-cl-ds" id="btn-ds-nhapvien">NHẬP VIỆN</button>
-      <div class="container" id="danh-sach-nhap-vien">
+      <div class="container div-xuat-ds" id="danh-sach-nhap-vien">
         <p id="p-ds-nhapvien"></p>
       </div>
       <button class="btn btn-primary btn-cl-ds" id="btn-ds-xuatvien">XUẤT VIỆN</button>
-      <div class="container" id="danh-sach-xuat-vien">
+      <div class="container div-xuat-ds" id="danh-sach-xuat-vien">
         <p id="p-ds-xuatvien"></p>
       </div>
     </div>

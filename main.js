@@ -33,6 +33,7 @@ fetch(postAPI)
       $("#gender").text(post[maID-1].gioi_tinh)
       $("#dayon").text(post[maID-1].ngay_nhap_vien)
       $("#dien_bien").text(post[maID-1].nhap_xuat)
+      $("#bacsi").text(post[maID-1].phan_loai)
       $("#btn-diemdanh").click(function(){
         var url ="https://script.google.com/macros/s/AKfycbws243WFFTpVpRNWwrGEjrcWVKlb_4tnlT9BIq_-MpmPCfobbvdu_YehviKypTfZzH2Pw/exec"
         

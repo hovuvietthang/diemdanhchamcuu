@@ -104,6 +104,12 @@ fetch(postAPI)
     
     
   })
+  $("#btn-dong").click(function(){
+    location.reload();
+  })
+  $("#btn-dong2").click(function(){
+    location.reload();
+  })
 
   // Diem danh
   

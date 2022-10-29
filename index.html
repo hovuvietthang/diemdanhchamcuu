@@ -49,7 +49,7 @@ source: alivableTag
     <div class="offcanvas offcanvas-start" id="infor-benh-nhan">
         <div class="offcanvas-header">
           <h4 class="offcanvas-title">THÔNG TIN BỆNH NHÂN</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+          <button id="btn-dong" type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
           <div class="infor-name"><h6>1) Họ và tên : </h6><p  class="infor-text text-uppercase" id="fullname"></p></div>
@@ -63,6 +63,7 @@ source: alivableTag
             <button title="nút điểm danh diều trị" class="btn btn-success btn-check-info" type="button" id="btn-diemdanh"></button>
             <button title="nút xuất viện"class="btn btn-danger btn-check-info " type="button" id="btn-xuatvien"></button>
             <button title="Nhập viện lại"class="btn btn-primary btn-check-info" type="button" id="btn-nhapvien"></button>
+            <button title="Đóng bảng thông tin"data-bs-dismiss="offcanvas" class="btn btn-dark btn-check-info btn-close btn-dong2" type="button" id="btn-dong2"></button>
           </div>
         </div>
         <script src="./main.js"></script>

@@ -153,3 +153,37 @@ console.log(results);
 
  document.getElementById("total_profile").innerHTML = results.length;
   })
+  // Điều trị hôm nay
+  var dieutri_nhap_xuatvienAPI = "https://script.google.com/macros/s/AKfycbw2s39jhczVuMCcdTCW4xIUcMFhKKvIPj4e1KttKJQLtik1Z9R9nA0hroSD9iv-PL5GJg/exec";
+fetch(dieutri_nhap_xuatvienAPI)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (dieutri_nhap_xuatvien) {
+  
+  var dieutri = [];
+  var nhapvien_today = [];
+  var xuatvien_today = [];
+  var searchField = "ngay_cham";
+  var search_dieutri = "Châm cứu " + daystr + "/" + mstr + "/" + d.getFullYear() ;
+  var search_nhapvien = "Nhập viện " + daystr + "/" + mstr + "/" + d.getFullYear() ;
+  var search_xuatvien = "Xuất viện " + daystr + "/" + mstr + "/" + d.getFullYear() ;
+  for (var i=0 ; i < dieutri_nhap_xuatvien.length ; i++)
+{
+  if (dieutri_nhap_xuatvien[i][searchField] == search_dieutri) {
+      dieutri.push(dieutri_nhap_xuatvien[i]);
+  }
+  if (dieutri_nhap_xuatvien[i][searchField] == search_nhapvien) {
+    nhapvien_today.push(dieutri_nhap_xuatvien[i]);
+}
+if (dieutri_nhap_xuatvien[i][searchField] == search_xuatvien) {
+  xuatvien_today.push(dieutri_nhap_xuatvien[i]);
+}
+
+}
+console.log(dieutri);
+
+ document.getElementById("total_profile_dieutri").innerHTML = dieutri.length;
+ document.getElementById("total_profile_nhap").innerHTML = nhapvien_today.length;
+ document.getElementById("total_profile_xuat").innerHTML = xuatvien_today.length;
+  })

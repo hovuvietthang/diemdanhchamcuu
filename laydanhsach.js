@@ -5,10 +5,10 @@ fetch(postAPI)
   })
   .then(function (post) { 
     $("#btn-ds-dieutri").click(function(){
-        var date_filter = $("#date-filter").val();
-        var year = date_filter.slice(0,4); //2022-10-04
-        var month = date_filter.slice(5,7)
-        var day = date_filter.slice(8,10);
+        var date_filter = $("#date-filter").val(); //dữ liệu trả về 2022-10-04
+        var year = date_filter.slice(0,4); // trả về 2022
+        var month = date_filter.slice(5,7) // trả về 10
+        var day = date_filter.slice(8,10); // trả về 04
         var ngayloc = day+"/"+month+"/"+year;
         var results = [];
     var searchField = "ngay_cham";
@@ -34,6 +34,7 @@ for (let a = 0; a < results.length; a++) {
         var results = [];
     var searchField = "ngay_cham";
     var searchVal = "Nhập viện "+ ngayloc;
+    console.log("Ngày lọc " + searchVal)
     for (var i=0 ; i < post.length ; i++)
 {
     if (post[i][searchField] == searchVal) {

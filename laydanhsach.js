@@ -22,7 +22,7 @@ fetch(postAPI)
 console.log(results)
 text = "";
 for (let a = 0; a < results.length; a++) {
-  text += a+1 + ") "+ results[a].ho_va_ten + "<br>";}
+  text += a+1 + ") "+ results[a].ho_va_ten + "/"+ results[a].phan_loai+"<br>";}
   document.getElementById("p-ds-dieutri").innerHTML=text;
     })
     $("#btn-ds-nhapvien").click(function(){
@@ -44,7 +44,7 @@ for (let a = 0; a < results.length; a++) {
 console.log(results)
 text = "";
 for (let a = 0; a < results.length; a++) {
-  text += a+1 + ") "+ results[a].ho_va_ten + "<br>";}
+  text += a+1 + ") "+ results[a].ho_va_ten +"/"+ results[a].phan_loai+"<br>";}
   document.getElementById("p-ds-nhapvien").innerHTML=text;
     })
     $("#btn-ds-xuatvien").click(function(){
@@ -65,7 +65,7 @@ for (let a = 0; a < results.length; a++) {
 console.log(results)
 text = "";
 for (let a = 0; a < results.length; a++) {
-  text += a+1 + ") "+ results[a].ho_va_ten + "<br>";}
+  text += a+1 + ") "+ results[a].ho_va_ten +"/"+ results[a].phan_loai+"<br>";}
   document.getElementById("p-ds-xuatvien").innerHTML=text;
     })
     

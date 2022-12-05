@@ -22,7 +22,9 @@ if (mstr.length === 1) {
   console.log("thang có 2 so");
 }
 
-
+$("#lichsudieutri-name").click(function(){
+  $("#days").show()
+})
 //console.log(d.getMonth())
 $("#btn-diemdanh").text("Châm cứu " + daystr+ "/" + mstr + "/" + d.getFullYear());
 $("#btn-xuatvien").text("Xuất viện " + daystr+ "/" + mstr + "/" + d.getFullYear());
@@ -48,7 +50,7 @@ fetch(postAPI)
   let vitri1 = nhapvao.indexOf(":")+1;
   let vitri2 = nhapvao.indexOf("/");
   var maID = nhapvao.slice(vitri1,vitri2).trim();
-  console.log(maID);
+  // console.log(maID);
       $("#fullname").text(post[maID-1].ho_va_ten)
       $("#yearsold").text(post[maID-1].tuoi)
       $("#gender").text(post[maID-1].gioi_tinh)
@@ -56,6 +58,12 @@ fetch(postAPI)
       $("#dien_bien").text(post[maID-1].nhap_xuat)
       $("#days").text(post[maID-1].lich_su)
       $("#bacsi").text(post[maID-1].phan_loai)
+      var lichsuDieutri = document.getElementById("days").innerText;
+      var positionDieutrigannhat = lichsuDieutri.lastIndexOf("Nhập viện");
+      var dieutriGannhat = lichsuDieutri.slice(positionDieutrigannhat);
+      $("#dieutrigannhat").text(dieutriGannhat)
+      console.log(positionDieutrigannhat)
+      console.log(lichsuDieutri);
       $("#btn-diemdanh").click(function(){
         var url ="https://script.google.com/macros/s/AKfycbws243WFFTpVpRNWwrGEjrcWVKlb_4tnlT9BIq_-MpmPCfobbvdu_YehviKypTfZzH2Pw/exec"
         

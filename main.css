@@ -1239,3 +1239,6 @@ p {
 .total_profile {
 	text-align: center;
 }
+#days{
+	display: none;
+}

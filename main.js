@@ -6,20 +6,20 @@ var daystr = day.toString();
 //var d_daystr= daystr.length;
 if (daystr.length === 1 ) {
  daystr = "0"+daystr;
- console.log(daystr);
+//  console.log(daystr);
 } else {
-  console.log("sai");
+  // console.log("sai");
 }
 
 var m = d.getMonth() +1; // tháng hiện tại [0-11] phải cộng cho 1
 var mstr = m.toString();
-console.log(mstr.length);
+// console.log(mstr.length);
 if (mstr.length === 1) {
    mstr = "0"+mstr;
-  console.log(mstr);
-  console.log("đk dung")
+  // console.log(mstr);
+  // console.log("đk dung")
 } else {
-  console.log("thang có 2 so");
+  // console.log("thang có 2 so");
 }
 
 $("#lichsudieutri-name").click(function(){
@@ -44,6 +44,48 @@ fetch(postAPI)
     return response.json();
   })
   .then(function (post) {
+    $("#id-benh-nhan").text("Số hồ sơ : "+" "+(post.length+1))
+    $("#btn-them-du-lieu").click (function (){
+      let hovaTen = document.getElementById("form-ho-va-ten");
+      let tuoiBn = document.getElementById("form-tuoi");
+      let gioitinhBn = document.getElementById("form-gioi-tinh");
+      let dateNhapvien = document.getElementById("form-date");
+      let phanloaiBN = document.getElementById("form-phan-loai");
+  
+      let vaLhovaTen = hovaTen.value;
+      let vaLtuoiBn = tuoiBn.value;
+      let vaLgioitinhBn = gioitinhBn.value;
+      let vaLdateNhapvien = dateNhapvien.value;
+      let vaLphanloaiBn = phanloaiBN.value;
+     
+      if (vaLhovaTen === "" || vaLtuoiBn === "" || vaLgioitinhBn ==="" || vaLdateNhapvien === "" || vaLphanloaiBn ===""){
+          alert("Vui lòng điền đầy đủ và chính xác thông tin bệnh nhân !")
+      } else {
+          var urlthemthongtin = "https://script.google.com/macros/s/AKfycbxODN-dswG9JQbvvGKEDDBAUD3xP-TA-zWgHajLlb3R82TR7mxMiGL7SMU90hHvnzGWKg/exec";
+          var data_benhnhanmoi = {
+              id : (post.length+1),
+              ho_va_ten : vaLhovaTen,
+              tuoi : vaLtuoiBn,
+              gioi_tinh : vaLgioitinhBn,
+              ngay_nhap_vien : vaLdateNhapvien,
+              phan_loai : vaLphanloaiBn,
+      
+          };
+          $.ajax({
+              url: urlthemthongtin,
+              method: "GET",
+              dataType: "json",
+              data: data_benhnhanmoi,
+          });
+          alert ("Ghi dữ liệu bệnh nhân mới thành công !")
+          console.log (data_benhnhanmoi)
+          location.reload();
+      }
+      
+  })
+
+
+
     
     $("#btn-tracuu").click(function(){
       let nhapvao = $("#tags").val();
@@ -62,8 +104,8 @@ fetch(postAPI)
       var positionDieutrigannhat = lichsuDieutri.lastIndexOf("Nhập viện");
       var dieutriGannhat = lichsuDieutri.slice(positionDieutrigannhat);
       $("#dieutrigannhat").text(dieutriGannhat)
-      console.log(positionDieutrigannhat)
-      console.log(lichsuDieutri);
+      // console.log(positionDieutrigannhat)
+      // console.log(lichsuDieutri);
       $("#btn-diemdanh").click(function(){
         var url ="https://script.google.com/macros/s/AKfycbws243WFFTpVpRNWwrGEjrcWVKlb_4tnlT9BIq_-MpmPCfobbvdu_YehviKypTfZzH2Pw/exec"
         
@@ -75,7 +117,7 @@ fetch(postAPI)
         time : d.getHours() + ":" + d.getMinutes(),
         cham_cuu : "Điều trị"
     };
-    console.log(data)
+    // console.log(data)
     
     $.ajax({
         url: url,
@@ -128,6 +170,9 @@ fetch(postAPI)
     alert ("Ghi nhập viện thành công !");
     location.reload();
       })
+
+      
+
     }
     )
     
@@ -189,9 +234,11 @@ if (dieutri_nhap_xuatvien[i][searchField] == search_xuatvien) {
 }
 
 }
-console.log(dieutri);
+// console.log(dieutri);
 
  document.getElementById("total_profile_dieutri").innerHTML = dieutri.length;
  document.getElementById("total_profile_nhap").innerHTML = nhapvien_today.length;
  document.getElementById("total_profile_xuat").innerHTML = xuatvien_today.length;
   })
+
+

@@ -46,6 +46,7 @@ source: alivableTag
         <div class="container btn">
             <button type="submit" id="btn-tracuu" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#infor-benh-nhan">TRA CỨU THÔNG TIN</button>
             <button class="btn btn-primary" id="btn-xuat-danh-sach" data-bs-toggle="offcanvas"data-bs-target="#xuat-danh-sach">XUẤT DANH SÁCH</button>
+            <button class="btn btn-success" id="btn-benh-nhan-moi" data-bs-toggle="offcanvas"data-bs-target="#benh-nhan-moi">THÊM THÔNG TIN BỆNH NHÂN MỚI</button>
         </div>
         <p class="total_profile">Tổng số hồ sơ đang điều trị : <span id="total_profile"> </span></p>
         <p class="total_profile">Điều trị hôm nay : <span id="total_profile_dieutri"> </span></p>
@@ -73,6 +74,43 @@ source: alivableTag
             <button title="Nhập viện lại"class="btn btn-primary btn-check-info" type="button" id="btn-nhapvien"></button>
             <button title="Đóng bảng thông tin"data-bs-dismiss="offcanvas" class="btn btn-dark btn-check-info btn-close btn-dong2" type="button" id="btn-dong2"></button>
           </div>
+        </div>
+    </div>
+    <!-- DIV Thông tin -->
+       <!-- DIV THÔNG TIN BỆNH NHÂN CHƯA CÓ DỮ LIỆU-->
+       <div class="offcanvas offcanvas-start" id="benh-nhan-moi">
+        <div class="offcanvas-header">
+          <h4 class="offcanvas-title">THÊM DỮ LIỆU BỆNH NHÂN MỚI</h4>
+          <button id="btn-dong" type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <form>
+            <p id="id-benh-nhan"></p>
+            <!-- Text input -->
+            <div class="form-outline mb-1">
+                <input type="text" id="form-ho-va-ten" class="form-control" placeholder="Họ và tên bệnh nhân" autocomplete="off" />
+              </div>
+               <!-- Text input -->
+            <div class="form-outline mb-1">
+                <input type="text" id="form-tuoi" class="form-control" placeholder="Tuổi" autocomplete="off" />
+              </div>
+            <!-- Text input -->
+            <div class="form-outline mb-1">
+              <input type="text" id="form-gioi-tinh" class="form-control" placeholder="Giới tính" autocomplete="off" />
+            </div>
+          
+            <!-- Text input -->
+            <div class="form-outline mb-1">
+              <input type="date" id="form-date" class="form-control" placeholder="Ngày nhập viện" autocomplete="off"/>
+            </div>
+            <!-- Email input -->
+            <div class="form-outline mb-1">
+              <input type="text" id="form-phan-loai" class="form-control" placeholder="Phân loại hồ sơ" autocomplete="off"/>
+            </div>
+            <!-- Message input -->
+            <!-- Submit button -->
+            <button class="btn btn-success" type="button" id = "btn-them-du-lieu">THÊM DỮ LIỆU</button>
+          </form>
         </div>
     </div>
     <!-- DIV Thông tin -->

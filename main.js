@@ -44,7 +44,7 @@ fetch(postAPI)
     return response.json();
   })
   .then(function (post) {
-    $("#id-benh-nhan").text("Số hồ sơ : "+" "+(post.length+1))
+    $("#id-benh-nhan").text("Mã số hồ sơ : "+" "+(post.length+1))
     $("#btn-them-du-lieu").click (function (){
       let hovaTen = document.getElementById("form-ho-va-ten");
       let tuoiBn = document.getElementById("form-tuoi");

@@ -85,10 +85,11 @@ for (let a = 0; a < results.length; a++) {
   document.getElementById("p-ds-xuatvien").innerHTML=text;
   $("#copy_ds_xuatvien").click(function(){
     let copyXuatvien = document.getElementById("p-ds-xuatvien").innerText;
-    
-    copyXuatvien.setSelectionRange(0, 99999)
-    $("#copy_ds_xuatvien").text("wogwog")
     navigator.clipboard.writeText(copyXuatvien)
+    $("#copy_ds_xuatvien").text("wogwog")
+    copyXuatvien.setSelectionRange(0, 99999)
+    
+    
   })
     })
     

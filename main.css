@@ -1229,8 +1229,9 @@ p {
 	margin: 5px 0;
 	padding: 5px;
 }
-#btn-xuat-danh-sach, #btn-tracuu{
-	width: 80%;
+#btn-xuat-danh-sach, #btn-tracuu, #btn-benh-nhan-moi{
+	width: 30%;
+	height : 100%;
 	margin: 3px;
 }
 .div-xuat-ds{
@@ -1241,4 +1242,32 @@ p {
 }
 #days{
 	display: none;
+}
+.btn-submit{
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: center;
+	border-radius: 50px;
+}
+.infor-text {
+	margin-left: 5px;
+}
+#fullname{
+	font-weight: 800;
+}
+.div_total_profile {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+	font-size: medium;
+}
+.total_profile {
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+}
+.span_total_profile{
+	margin-left: 3px;
 }

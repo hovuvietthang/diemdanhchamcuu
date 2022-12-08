@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -18,8 +19,8 @@
 <body>
     <div class="container">
         <h1 class="tieudeweb">ĐIỂM DANH CHÂM CỨU</h1>
-    </div>
-    <div class="container">
+      </div>
+      <div class="container">
       <input id="tags" class="form-control"type="search" placeholder="Họ và tên bệnh nhân" required spellcheck="false" autocomplete="off">
       <script>
         var inforAPI = "https://script.google.com/macros/s/AKfycbxH-wJUqFE_2Q9Fta3DpgsUsqkRxQUi3kjQJjg_oTHbTF_s0i0hCuOCTlijU_FgEG_cDg/exec";
@@ -43,15 +44,17 @@ source: alivableTag
 });
 });
     </script>
-        <div class="container btn">
-            <button type="submit" id="btn-tracuu" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#infor-benh-nhan">TRA CỨU THÔNG TIN</button>
-            <button class="btn btn-primary" id="btn-xuat-danh-sach" data-bs-toggle="offcanvas"data-bs-target="#xuat-danh-sach">XUẤT DANH SÁCH</button>
-            <button class="btn btn-success" id="btn-benh-nhan-moi" data-bs-toggle="offcanvas"data-bs-target="#benh-nhan-moi">THÊM THÔNG TIN BỆNH NHÂN MỚI</button>
+    </div>
+        <div class="container btn btn-submit">
+            <button title = "Tra cứu thông tin"type="submit" id="btn-tracuu" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#infor-benh-nhan"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button title = "Xuất danh sách"type = "submit"class="btn btn-primary" id="btn-xuat-danh-sach" data-bs-toggle="offcanvas"data-bs-target="#xuat-danh-sach"><i class="fa-solid fa-download"></i></button>
+            <button title = "Thêm dữ liệu bệnh nhân mới"type = "submit" class="btn btn-primary" id="btn-benh-nhan-moi" data-bs-toggle="offcanvas"data-bs-target="#benh-nhan-moi"><i class="fa-solid fa-user-plus"></i></button>
         </div>
-        <p class="total_profile">Tổng số hồ sơ đang điều trị : <span id="total_profile"> </span></p>
-        <p class="total_profile">Điều trị hôm nay : <span id="total_profile_dieutri"> </span></p>
-        <p class="total_profile">Nhập viện hôm nay : <span id="total_profile_nhap"> </span></p>
-        <p class="total_profile">Xuất viện hôm nay : <span id="total_profile_xuat"> </span></p>
+      <div class="div_total_profile">
+        <p class="total_profile"><i class="fa-solid fa-address-card"></i><span class="span_total_profile"id="total_profile"> </span></p>
+        <p class="total_profile"><i class="fa-solid fa-syringe"></i><span class="span_total_profile"id="total_profile_dieutri"> </span></p>
+        <p class="total_profile"><i class="fa-solid fa-user-plus"></i><span class="span_total_profile"id="total_profile_nhap"> </span></p>
+        <p class="total_profile"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i><span class="span_total_profile"id="total_profile_xuat"> </span></p>
     </div>
     <!-- DIV THÔNG TIN -->
     <div class="offcanvas offcanvas-start" id="infor-benh-nhan">
@@ -60,14 +63,14 @@ source: alivableTag
           <button id="btn-dong" type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
-          <div class="infor-name"><h6>1) Họ và tên : </h6><p  class="infor-text text-uppercase" id="fullname"></p></div>
-          <div class="infor-name"><h6>2) Tuổi : </h6><p  class="infor-text" id="yearsold"></p></div>
-          <div class="infor-name"><h6>3) Giới tính : </h6><p  class="infor-text text-uppercase" id="gender"></p></div>
-          <div class="infor-name"><h6>4) Ngày nhập viện : </h6><p  class="infor-text" id="dayon"></p></div>
-          <div class="infor-name"><h6>5) Tình trạng hiện tại : </h6><p  class="infor-text" id="dien_bien"></p></div>
-          <div class="infor-name"><h6>6) Bác sĩ điều trị : </h6><p  class="infor-text" id="bacsi"></p></div>
-          <div class="infor-name"><h6>7) Đợt điều trị gần nhất : </h6></div><p  class="infor-text" id="dieutrigannhat"></p>
-          <div class="infor-name" id="lichsudieutri-div"><h6 id="lichsudieutri-name">8) Lịch sử điều trị : [Ẩn/Hiện]</h6></div><p  class="infor-text" id="days"></p>
+          <div class="infor-name"><h6><i class="fa-solid fa-user"></i></h6><p class="infor-text text-uppercase" id="fullname"></p></div>
+          <div class="infor-name"><h6><i class="fa-solid fa-cake-candles"></i></h6> <p  class="infor-text" id="yearsold"></p></div>
+          <div class="infor-name"><h6><i class="fa-solid fa-venus-mars"></i></h6><p  class="infor-text text-uppercase" id="gender"></p></div>
+          <div class="infor-name"><h6><i class="fa-solid fa-calendar-days"></i></h6><p  class="infor-text" id="dayon"></p></div>
+          <div class="infor-name"><h6><i class="fa-solid fa-file-waveform"></i></h6><p  class="infor-text" id="dien_bien"></p></div>
+          <div class="infor-name"><h6><i class="fa-solid fa-user-doctor"></i></h6><p  class="infor-text" id="bacsi"></p></div>
+          <div class="infor-name"><h6><i class="fa-solid fa-list"></i></h6></div><p  class="infor-text" id="dieutrigannhat"></p>
+          <div class="infor-name" id="lichsudieutri-div"><h6 id="lichsudieutri-name">Lịch sử điều trị <i class="fa-solid fa-eye"></i></h6></div><p  class="infor-text" id="days"></p>
           <div class="infor-btn">
             <button title="nút điểm danh diều trị" class="btn btn-success btn-check-info" type="button" id="btn-diemdanh"></button>
             <button title="nút xuất viện"class="btn btn-danger btn-check-info " type="button" id="btn-xuatvien"></button>

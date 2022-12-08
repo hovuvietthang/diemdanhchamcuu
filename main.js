@@ -44,7 +44,7 @@ fetch(postAPI)
     return response.json();
   })
   .then(function (post) {
-    $("#id-benh-nhan").text("Mã số hồ sơ : "+" "+(post.length+1))
+    $("#id-benh-nhan").text("Số hồ sơ : "+" "+(post.length+1))
     $("#btn-them-du-lieu").click (function (){
       let hovaTen = document.getElementById("form-ho-va-ten");
       let tuoiBn = document.getElementById("form-tuoi");
@@ -96,14 +96,19 @@ fetch(postAPI)
       $("#fullname").text(post[maID-1].ho_va_ten)
       $("#yearsold").text(post[maID-1].tuoi)
       $("#gender").text(post[maID-1].gioi_tinh)
-      $("#dayon").text(post[maID-1].ngay_nhap_vien)
+      // $("#dayon").text(post[maID-1].ngay_nhap_vien)
       $("#dien_bien").text(post[maID-1].nhap_xuat)
       $("#days").text(post[maID-1].lich_su)
       $("#bacsi").text(post[maID-1].phan_loai)
       var lichsuDieutri = document.getElementById("days").innerText;
-      var positionDieutrigannhat = lichsuDieutri.lastIndexOf("Nhập viện");
+      
+      var positionDieutrigannhat = lichsuDieutri.lastIndexOf("Nhập viện"); //Nhập viện 08/10/2022 : 20 ký tự
       var dieutriGannhat = lichsuDieutri.slice(positionDieutrigannhat);
       $("#dieutrigannhat").text(dieutriGannhat)
+      var ngay_nhap_vien_gan_nhat = dieutriGannhat.slice(0,20)
+      console.log("Vị trí điều trị gần nhất : "+positionDieutrigannhat+" /Nhập viện :" + ngay_nhap_vien_gan_nhat)
+      console.log("Chuỗi điều trị gần nhất = " + dieutriGannhat)
+      $("#dayon").text(ngay_nhap_vien_gan_nhat)
       // console.log(positionDieutrigannhat)
       // console.log(lichsuDieutri);
       $("#btn-diemdanh").click(function(){
@@ -170,9 +175,6 @@ fetch(postAPI)
     alert ("Ghi nhập viện thành công !");
     location.reload();
       })
-
-      
-
     }
     )
     

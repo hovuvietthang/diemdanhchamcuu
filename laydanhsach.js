@@ -25,7 +25,7 @@ for (let a = 0; a < results.length; a++) {
   text += a+1 + ") "+ results[a].ho_va_ten + "/"+ results[a].phan_loai+"<br>";}
   document.getElementById("p-ds-dieutri").innerHTML=text;
   $("#copy_ds_dieutri").click(function(){
-    let copyDieutri = document.getElementById("p-ds-nhapvien").innerText;
+    let copyDieutri = document.getElementById("p-ds-dieutri").innerText;
     navigator.clipboard.writeText(copyDieutri)
     $("#copy_ds_dieutri").text("wogwog")
     copyDieutri.setSelectionRange(0, 99999)

@@ -24,6 +24,13 @@ text = "";
 for (let a = 0; a < results.length; a++) {
   text += a+1 + ") "+ results[a].ho_va_ten + "/"+ results[a].phan_loai+"<br>";}
   document.getElementById("p-ds-dieutri").innerHTML=text;
+  
+  $("#copy_ds_dieutri").click(function(){
+    let copyDieutri = document.getElementById("p-ds-dieutri").innerText
+    navigator.clipboard.writeText(copyDieutri)
+    alert  ("Copy danh sách điều trị thành công")
+  })
+
     })
     $("#btn-ds-nhapvien").click(function(){
         var date_filter = $("#date-filter").val();
@@ -46,6 +53,11 @@ text = "";
 for (let a = 0; a < results.length; a++) {
   text += a+1 + ") "+ results[a].ho_va_ten +"/"+ results[a].phan_loai+"<br>";}
   document.getElementById("p-ds-nhapvien").innerHTML=text;
+  $("#copy_ds_nhapvien").click(function(){
+    let copyNhapvien = document.getElementById("p-ds-nhapvien").innerText
+    navigator.clipboard.writeText(copyNhapvien)
+    alert  ("Copy danh sách Nhập viện thành công")
+  })
     })
     $("#btn-ds-xuatvien").click(function(){
         var date_filter = $("#date-filter").val();
@@ -67,6 +79,13 @@ text = "";
 for (let a = 0; a < results.length; a++) {
   text += a+1 + ") "+ results[a].ho_va_ten +"/"+ results[a].phan_loai+"<br>";}
   document.getElementById("p-ds-xuatvien").innerHTML=text;
+  $("#copy_ds_xuatvien").click(function(){
+    let copyXuatvien = document.getElementById("p-ds-xuatvien").innerText
+    navigator.clipboard.writeText(copyXuatvien)
+    alert  ("Copy danh sách Xuất viện thành công")
+  })
     })
     
   })
+
+  

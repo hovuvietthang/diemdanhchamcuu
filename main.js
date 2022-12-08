@@ -44,19 +44,20 @@ fetch(postAPI)
     return response.json();
   })
   .then(function (post) {
-    $("#id-benh-nhan").text("Số hồ sơ : "+" "+(post.length+1))
+    $("#id-benh-nhan").text("Mã số hồ sơ : "+" "+(post.length+1))
     $("#btn-them-du-lieu").click (function (){
       let hovaTen = document.getElementById("form-ho-va-ten");
       let tuoiBn = document.getElementById("form-tuoi");
       let gioitinhBn = document.getElementById("form-gioi-tinh");
       let dateNhapvien = document.getElementById("form-date");
       let phanloaiBN = document.getElementById("form-phan-loai");
-  
+      let ghichutrieuchung = document.getElementById("form-ghi-chu-2");
       let vaLhovaTen = hovaTen.value;
       let vaLtuoiBn = tuoiBn.value;
       let vaLgioitinhBn = gioitinhBn.value;
       let vaLdateNhapvien = dateNhapvien.value;
       let vaLphanloaiBn = phanloaiBN.value;
+      let vaLghichu2 = ghichutrieuchung.value;
      
       if (vaLhovaTen === "" || vaLtuoiBn === "" || vaLgioitinhBn ==="" || vaLdateNhapvien === "" || vaLphanloaiBn ===""){
           alert("Vui lòng điền đầy đủ và chính xác thông tin bệnh nhân !")
@@ -69,6 +70,9 @@ fetch(postAPI)
               gioi_tinh : vaLgioitinhBn,
               ngay_nhap_vien : vaLdateNhapvien,
               phan_loai : vaLphanloaiBn,
+              ghi_chu_2 : vaLghichu2,
+              lich_su : '=ARRAYFORMULA(TEXTJOIN(" | ";TRUE;IF(diemdanh!$B:B = B'+(post.length+2)+' ; diemdanh!C:C ; "")))',
+              nhap_xuat : '=IF(left(RIGHT(J'+ (post.length + 2)+';19);8)="Châm cứu";"Đang điều trị";if(left(right(J'+ (post.length + 2)+';20);9) = "Xuất viện";right(J'+ (post.length + 2)+';20);"Nhập viện không châm cứu"))'
       
           };
           $.ajax({
@@ -99,6 +103,7 @@ fetch(postAPI)
       // $("#dayon").text(post[maID-1].ngay_nhap_vien)
       $("#dien_bien").text(post[maID-1].nhap_xuat)
       $("#days").text(post[maID-1].lich_su)
+      $("#chan-doan").text(post[maID-1].ghi_chu_2)
       $("#bacsi").text(post[maID-1].phan_loai)
       var lichsuDieutri = document.getElementById("days").innerText;
       

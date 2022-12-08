@@ -69,6 +69,7 @@ source: alivableTag
           <div class="infor-name"><h6><i class="fa-solid fa-calendar-days"></i></h6><p  class="infor-text" id="dayon"></p></div>
           <div class="infor-name"><h6><i class="fa-solid fa-file-waveform"></i></h6><p  class="infor-text" id="dien_bien"></p></div>
           <div class="infor-name"><h6><i class="fa-solid fa-user-doctor"></i></h6><p  class="infor-text" id="bacsi"></p></div>
+          <div class="infor-name"><h6><i class="fa-solid fa-tag"></i></h6><p  class="infor-text" id="chan-doan"></p></div>
           <div class="infor-name"><h6><i class="fa-solid fa-list"></i></h6></div><p  class="infor-text" id="dieutrigannhat"></p>
           <div class="infor-name" id="lichsudieutri-div"><h6 id="lichsudieutri-name">Lịch sử điều trị <i class="fa-solid fa-eye"></i></h6></div><p  class="infor-text" id="days"></p>
           <div class="infor-btn">
@@ -95,24 +96,37 @@ source: alivableTag
               </div>
                <!-- Text input -->
             <div class="form-outline mb-1">
-                <input type="text" id="form-tuoi" class="form-control" placeholder="Tuổi" autocomplete="off" />
+                <input type="number" id="form-tuoi" class="form-control" placeholder="Năm sinh / tuổi" autocomplete="off" />
               </div>
             <!-- Text input -->
             <div class="form-outline mb-1">
-              <input type="text" id="form-gioi-tinh" class="form-control" placeholder="Giới tính" autocomplete="off" />
+              <select name="gioi-tinh" id="form-gioi-tinh" class="form-control">
+                <option value="">--Chọn giới tính--</option>
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
+            </select>
             </div>
           
             <!-- Text input -->
             <div class="form-outline mb-1">
               <input type="date" id="form-date" class="form-control" placeholder="Ngày nhập viện" autocomplete="off"/>
             </div>
-            <!-- Email input -->
+            <!-- Text input -->
             <div class="form-outline mb-1">
-              <input type="text" id="form-phan-loai" class="form-control" placeholder="Phân loại hồ sơ" autocomplete="off"/>
+              <select name="bac-si-dieu-tri" id="form-phan-loai" class="form-control">
+                <option value="">--Chọn bác sĩ điều trị--</option>
+                <option value="Bác sĩ Dũng">Bác sĩ Dũng</option>
+                <option value="Bác sĩ Na">Bác sĩ Na</option>
+                <option value="Bác sĩ Vũ">Bác sĩ Vũ</option>
+            </select>
+            </div>
+            <!-- Text input -->
+            <div class="form-outline mb-1">
+              <textarea type="text" id="form-ghi-chu-2" class="form-control" placeholder="Chẩn đoán/ghi chú triệu chứng" autocomplete="off"></textarea>
             </div>
             <!-- Message input -->
             <!-- Submit button -->
-            <button class="btn btn-success" type="button" id = "btn-them-du-lieu">THÊM DỮ LIỆU</button>
+            <button class="btn btn-success" type="button" id = "btn-them-du-lieu"><i class="fa-solid fa-user-plus"></i> THÊM DỮ LIỆU</button>
           </form>
         </div>
     </div>

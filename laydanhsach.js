@@ -27,7 +27,8 @@ for (let a = 0; a < results.length; a++) {
   
   $("#copy_ds_dieutri").click(function(){
     let copyDieutri = document.getElementById("p-ds-dieutri").innerText
-    navigator.clipboard.writeText(copyDieutri)
+    navigator.clipboard.writeText(copyDieutri);
+    copyDieutri.setSelectionRange(0, 99999)
     alert  ("Copy danh sách điều trị thành công")
   })
 
@@ -56,6 +57,7 @@ for (let a = 0; a < results.length; a++) {
   $("#copy_ds_nhapvien").click(function(){
     let copyNhapvien = document.getElementById("p-ds-nhapvien").innerText
     navigator.clipboard.writeText(copyNhapvien)
+    copyNhapvien.setSelectionRange(0, 99999)
     alert  ("Copy danh sách Nhập viện thành công")
   })
     })
@@ -80,7 +82,8 @@ for (let a = 0; a < results.length; a++) {
   text += a+1 + ") "+ results[a].ho_va_ten +"/"+ results[a].phan_loai+"<br>";}
   document.getElementById("p-ds-xuatvien").innerHTML=text;
   $("#copy_ds_xuatvien").click(function(){
-    let copyXuatvien = document.getElementById("p-ds-xuatvien").innerText
+    let copyXuatvien = document.getElementById("p-ds-xuatvien").innerText;
+    copyXuatvien.setSelectionRange(0, 99999)
     navigator.clipboard.writeText(copyXuatvien)
     alert  ("Copy danh sách Xuất viện thành công")
   })

@@ -25,13 +25,7 @@ for (let a = 0; a < results.length; a++) {
   text += a+1 + ") "+ results[a].ho_va_ten + "/"+ results[a].phan_loai+"<br>";}
   document.getElementById("p-ds-dieutri").innerHTML=text;
   
-  $("#copy_ds_dieutri").click(function(){
-    let copyDieutri = document.getElementById("p-ds-dieutri").innerText
-    navigator.clipboard.writeText(copyDieutri);
-    $("#copy_ds_dieutri").text("wogwog")
-    copyDieutri.setSelectionRange(0, 99999)
-    
-  })
+ 
 
     })
     $("#btn-ds-nhapvien").click(function(){
@@ -84,11 +78,10 @@ for (let a = 0; a < results.length; a++) {
   text += a+1 + ") "+ results[a].ho_va_ten +"/"+ results[a].phan_loai+"<br>";}
   document.getElementById("p-ds-xuatvien").innerHTML=text;
   $("#copy_ds_xuatvien").click(function(){
-    let copyXuatvien = document.getElementById("p-ds-xuatvien").innerText;
-    navigator.clipboard.writeText(copyXuatvien)
+    let copyXuatvien = document.getElementById("p-ds-xuatvien").innerText
+    navigator.clipboard.writeText(copyXuatvien);
     $("#copy_ds_xuatvien").text("wogwog")
     copyXuatvien.setSelectionRange(0, 99999)
-    
     
   })
     })

@@ -58,7 +58,7 @@ for (let a = 0; a < results.length; a++) {
   $("#copy_ds_nhapvien").click(function(){
     let copyNhapvien = document.getElementById("p-ds-nhapvien").innerText;
     navigator.clipboard.writeText(copyNhapvien)
-    $("#copy_ds_xuatvien").text("wogwog")
+    $("#copy_ds_nhapvien").text("wogwog")
     copyNhapvien.setSelectionRange(0, 99999)
     
   })

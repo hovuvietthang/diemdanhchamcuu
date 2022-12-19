@@ -105,6 +105,12 @@ fetch(postAPI)
       $("#days").text(post[maID-1].lich_su)
       $("#chan-doan").text(post[maID-1].ghi_chu_2)
       $("#bacsi").text(post[maID-1].phan_loai)
+      $("#hosobenhan").attr(
+        "href", post[maID-1].hosobenhan
+      )
+      $("#phieudieutri").attr(
+        "href", post[maID-1].phieudieutri
+      )
       var lichsuDieutri = document.getElementById("days").innerText;
       
       var positionDieutrigannhat = lichsuDieutri.lastIndexOf("Nhập viện"); //Nhập viện 08/10/2022 : 20 ký tự

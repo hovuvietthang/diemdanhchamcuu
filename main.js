@@ -36,7 +36,7 @@ $("#btn-tracuu").click(function(){
   let vitri1 = nhapvao.indexOf(":")+1;
   let vitri2 = nhapvao.indexOf("/");
   var maID = nhapvao.slice(vitri1,vitri2).trim();
-  console.log(maID);
+  //console.log(maID);
 })
 var postAPI = "https://script.google.com/macros/s/AKfycbxH-wJUqFE_2Q9Fta3DpgsUsqkRxQUi3kjQJjg_oTHbTF_s0i0hCuOCTlijU_FgEG_cDg/exec";
 fetch(postAPI)
@@ -82,7 +82,7 @@ fetch(postAPI)
               data: data_benhnhanmoi,
           });
           alert ("Ghi dữ liệu bệnh nhân mới thành công !")
-          console.log (data_benhnhanmoi)
+          //console.log (data_benhnhanmoi)
           location.reload();
       }
       
@@ -119,8 +119,8 @@ fetch(postAPI)
       var dieutriGannhat = lichsuDieutri.slice(positionDieutrigannhat);
       $("#dieutrigannhat").text(dieutriGannhat)
       var ngay_nhap_vien_gan_nhat = dieutriGannhat.slice(0,20)
-      console.log("Vị trí điều trị gần nhất : "+positionDieutrigannhat+" /Nhập viện :" + ngay_nhap_vien_gan_nhat)
-      console.log("Chuỗi điều trị gần nhất = " + dieutriGannhat)
+      //console.log("Vị trí điều trị gần nhất : "+positionDieutrigannhat+" /Nhập viện :" + ngay_nhap_vien_gan_nhat)
+      //console.log("Chuỗi điều trị gần nhất = " + dieutriGannhat)
       $("#dayon").text(ngay_nhap_vien_gan_nhat)
       // console.log(positionDieutrigannhat)
       // console.log(lichsuDieutri);
@@ -134,7 +134,8 @@ fetch(postAPI)
         ngay_cham: "Châm cứu " + daystr + "/" + mstr + "/" + d.getFullYear(), //châm cứu ngày tháng năm
         time : d.getHours() + ":" + d.getMinutes(),
         cham_cuu : "Điều trị",
-        phieudieutri : post[maID-1].phieudieutri
+        phieudieutri : post[maID-1].phieudieutri,
+        hosobenhan : post[maID-1].hosobenhan
     };
     // console.log(data)
     
@@ -157,7 +158,8 @@ fetch(postAPI)
         ngay_cham: "Xuất viện " + daystr+ "/" + mstr + "/" + d.getFullYear(),
         time : d.getHours() + ":" + d.getMinutes(),
         xuat_vien : "Xuất viện ",
-        phieudieutri : post[maID-1].phieudieutri
+        phieudieutri : post[maID-1].phieudieutri,
+        hosobenhan : post[maID-1].hosobenhan
     };
     
     $.ajax({
@@ -179,7 +181,8 @@ fetch(postAPI)
         ngay_cham: "Nhập viện " + daystr+ "/" + mstr + "/" + d.getFullYear(),
         time : d.getHours() + ":" + d.getMinutes(),
         nhap_vien : "Nhập viện ",
-        phieudieutri : post[maID-1].phieudieutri
+        phieudieutri : post[maID-1].phieudieutri,
+        hosobenhan : post[maID-1].hosobenhan
     };
     
     $.ajax({
@@ -220,8 +223,16 @@ fetch(postAPI)
       results.push(post[i]);
   }
 }
-console.log(results);
+//console.log(results);
 
+ $("#btn-nhiem-vu").click(function(){
+  text = "";
+  for (let a = 0; a < results.length; a++) {
+    text += a+1 + ") "+results[a].ho_va_ten+ "<a class='openHSBA' href="+"'"+results[a].hosobenhan+"'"+"target="+'"_blank"'+">"+'<i title = "Mở hồ sơ bệnh án" class="fa-solid fa-id-card"></i>'+"</a>"+"<a class='openHSBA' href="+"'"+results[a].phieudieutri+"'"+"target="+'"_blank"'+">"+'<i title = "Mở phiếu thực hiện kỹ thuật" class="fa-solid fa-calendar-check"></i>'+"</a>" + "<br>";
+  }
+  //console.log(text)
+  document.getElementById("ds-xuong-ho-so").innerHTML =text;
+ })
  document.getElementById("total_profile").innerHTML = results.length;
   })
   // Điều trị hôm nay
@@ -257,6 +268,11 @@ if (dieutri_nhap_xuatvien[i][searchField] == search_xuatvien) {
  document.getElementById("total_profile_dieutri").innerHTML = dieutri.length;
  document.getElementById("total_profile_nhap").innerHTML = nhapvien_today.length;
  document.getElementById("total_profile_xuat").innerHTML = xuatvien_today.length;
+
   })
 
+
+$("#btn-chart").click(function(){
+  alert ("Biểu đồ thống kê đang phát triển !")
+})
 

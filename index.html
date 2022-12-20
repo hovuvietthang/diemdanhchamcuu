@@ -49,10 +49,13 @@ source: alivableTag
             <button title = "Tra cứu thông tin"type="submit" id="btn-tracuu" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#infor-benh-nhan"><i class="fa-solid fa-magnifying-glass"></i></button>
             <button title = "Xuất danh sách"type = "submit"class="btn btn-primary" id="btn-xuat-danh-sach" data-bs-toggle="offcanvas"data-bs-target="#xuat-danh-sach"><i class="fa-solid fa-download"></i></button>
             <button title = "Thêm dữ liệu bệnh nhân mới"type = "submit" class="btn btn-primary" id="btn-benh-nhan-moi" data-bs-toggle="offcanvas"data-bs-target="#benh-nhan-moi"><i class="fa-solid fa-user-plus"></i></button>
+            <button title = "tag nhiệm vụ"type = "submit" class="btn btn-primary" id="btn-nhiem-vu" data-bs-toggle="offcanvas"data-bs-target="#nhiem-vu"><i class="fa-solid fa-list-ol"></i></button>
+            <button title = "mở biểu đồ, thống kê"type = "submit" class="btn btn-primary" id="btn-chart" data-bs-toggle="offcanvas"data-bs-target="#chart"><i class="fa-solid fa-chart-line"></i></button>
+
         </div>
       <div class="div_total_profile">
         <p class="total_profile"><i class="fa-solid fa-address-card"></i><span class="span_total_profile"id="total_profile"> </span></p>
-        <p class="total_profile"><i class="fa-solid fa-syringe"></i><span class="span_total_profile"id="total_profile_dieutri"> </span></p>
+        <p class="total_profile"><i class="fa-solid fa-map-pin"></i><span class="span_total_profile"id="total_profile_dieutri"> </span></p>
         <p class="total_profile"><i class="fa-solid fa-user-plus"></i><span class="span_total_profile"id="total_profile_nhap"> </span></p>
         <p class="total_profile"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i><span class="span_total_profile"id="total_profile_xuat"> </span></p>
     </div>
@@ -162,6 +165,17 @@ source: alivableTag
       </div>
     </div>
     <!-- DIV LẤY DANH SÁCH CHÂM CỨU -->
+    <!-- DIV NHIỆM VỤ CẦN LÀM-->
+    <div class="offcanvas offcanvas-start container offcanvas-body" id="nhiem-vu">
+      <div class="offcanvas-header">
+        <h4 class="offcanvas-title">CẬP NHẬT HỒ SƠ THEO TUẦN</h4>
+      <button id="" type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+    <div>
+      <p>Danh sách bệnh nhân đang điều trị tại khoa</p>
+      <p id="ds-xuong-ho-so"></p>
+    </div>
+    <!-- DIV NHIỆM VỤ CẦN LÀM-->
         <script src="./main.js"></script>
         <script src="./laydanhsach.js"></script>
 </body>

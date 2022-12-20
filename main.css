@@ -1229,8 +1229,8 @@ p {
 	margin: 5px 0;
 	padding: 5px;
 }
-#btn-xuat-danh-sach, #btn-tracuu, #btn-benh-nhan-moi{
-	width: 30%;
+#btn-xuat-danh-sach, #btn-tracuu, #btn-benh-nhan-moi,#btn-nhiem-vu,#btn-chart{
+	width: 20%;
 	height : 100%;
 	margin: 3px;
 }
@@ -1273,4 +1273,8 @@ p {
 }
 .copy{
 	font-size: 30px;
+}
+.openHSBA {
+	margin-left: 15px;
+	
 }

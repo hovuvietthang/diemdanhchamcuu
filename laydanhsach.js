@@ -22,14 +22,15 @@ fetch(postAPI)
 console.log(results)
 text = "";
 for (let a = 0; a < results.length; a++) {
-  text += a+1 + ") "+ results[a].ho_va_ten + "/"+ results[a].phan_loai+"<br>";}
+  text += a+1 + ") "+ "<a href="+"'"+results[a].phieudieutri+"'"+"target="+'"_blank"'+">"+results[a].ho_va_ten+"</a>" + "<br>";}
+  // text += a+1 + ") "+ results[a].ho_va_ten + "/"+ results[a].phan_loai+  "<br>";}
   document.getElementById("p-ds-dieutri").innerHTML=text;
   $("#copy_ds_dieutri").click(function(){
     let copyDieutri = document.getElementById("p-ds-dieutri").innerText;
     navigator.clipboard.writeText(copyDieutri)
-    $("#copy_ds_dieutri").text("wogwog")
+    $("#copy_ds_dieutri").text("copied")
     copyDieutri.setSelectionRange(0, 99999)
-    
+    // <a href="+results[a].phieudieutri+" target="_blank">+results[a].ho_va_ten+</a>
   })
  
 
@@ -53,12 +54,12 @@ for (let a = 0; a < results.length; a++) {
 console.log(results)
 text = "";
 for (let a = 0; a < results.length; a++) {
-  text += a+1 + ") "+ results[a].ho_va_ten +"/"+ results[a].phan_loai+"<br>";}
+  text += a+1 + ") "+ "<a href="+"'"+results[a].phieudieutri+"'"+"target="+'"_blank"'+">"+results[a].ho_va_ten+"</a>" + "<br>";}
   document.getElementById("p-ds-nhapvien").innerHTML=text;
   $("#copy_ds_nhapvien").click(function(){
     let copyNhapvien = document.getElementById("p-ds-nhapvien").innerText;
     navigator.clipboard.writeText(copyNhapvien)
-    $("#copy_ds_nhapvien").text("wogwog")
+    $("#copy_ds_nhapvien").text("copied")
     copyNhapvien.setSelectionRange(0, 99999)
     
   })
@@ -81,12 +82,12 @@ for (let a = 0; a < results.length; a++) {
 console.log(results)
 text = "";
 for (let a = 0; a < results.length; a++) {
-  text += a+1 + ") "+ results[a].ho_va_ten +"/"+ results[a].phan_loai+"<br>";}
+  text += a+1 + ") "+ "<a href="+"'"+results[a].phieudieutri+"'"+"target="+'"_blank"'+">"+results[a].ho_va_ten+"</a>" + "<br>";}
   document.getElementById("p-ds-xuatvien").innerHTML=text;
   $("#copy_ds_xuatvien").click(function(){
     let copyXuatvien = document.getElementById("p-ds-xuatvien").innerText
     navigator.clipboard.writeText(copyXuatvien);
-    $("#copy_ds_xuatvien").text("wogwog")
+    $("#copy_ds_xuatvien").text("copied")
     copyXuatvien.setSelectionRange(0, 99999)
     
   })

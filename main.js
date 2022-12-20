@@ -105,6 +105,8 @@ fetch(postAPI)
       $("#days").text(post[maID-1].lich_su)
       $("#chan-doan").text(post[maID-1].ghi_chu_2)
       $("#bacsi").text(post[maID-1].phan_loai)
+      $("#masohoso").text("Mã số : "+ post[maID-1].id)
+      // document.getElementById("phieudieutri-1").innerHTML = post[maID-1].phieudieutri
       $("#hosobenhan").attr(
         "href", post[maID-1].hosobenhan
       )
@@ -131,7 +133,8 @@ fetch(postAPI)
         ho_va_ten: post[maID-1].ho_va_ten,
         ngay_cham: "Châm cứu " + daystr + "/" + mstr + "/" + d.getFullYear(), //châm cứu ngày tháng năm
         time : d.getHours() + ":" + d.getMinutes(),
-        cham_cuu : "Điều trị"
+        cham_cuu : "Điều trị",
+        phieudieutri : post[maID-1].phieudieutri
     };
     // console.log(data)
     
@@ -153,7 +156,8 @@ fetch(postAPI)
         ho_va_ten: post[maID-1].ho_va_ten,
         ngay_cham: "Xuất viện " + daystr+ "/" + mstr + "/" + d.getFullYear(),
         time : d.getHours() + ":" + d.getMinutes(),
-        xuat_vien : "Xuất viện "
+        xuat_vien : "Xuất viện ",
+        phieudieutri : post[maID-1].phieudieutri
     };
     
     $.ajax({
@@ -174,7 +178,8 @@ fetch(postAPI)
         ho_va_ten: post[maID-1].ho_va_ten,
         ngay_cham: "Nhập viện " + daystr+ "/" + mstr + "/" + d.getFullYear(),
         time : d.getHours() + ":" + d.getMinutes(),
-        nhap_vien : "Nhập viện "
+        nhap_vien : "Nhập viện ",
+        phieudieutri : post[maID-1].phieudieutri
     };
     
     $.ajax({

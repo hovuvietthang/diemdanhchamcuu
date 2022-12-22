@@ -26,9 +26,9 @@ $("#lichsudieutri-name").click(function(){
   $("#days").show()
 })
 //console.log(d.getMonth())
-$("#btn-diemdanh").text("Châm cứu " + daystr+ "/" + mstr + "/" + d.getFullYear());
-$("#btn-xuatvien").text("Xuất viện " + daystr+ "/" + mstr + "/" + d.getFullYear());
-$("#btn-nhapvien").text("Nhập viện " + daystr+ "/" + mstr + "/" + d.getFullYear());
+// $("#btn-diemdanh").text("Châm cứu " + daystr+ "/" + mstr + "/" + d.getFullYear());
+// $("#btn-xuatvien").text("Xuất viện " + daystr+ "/" + mstr + "/" + d.getFullYear());
+// $("#btn-nhapvien").text("Nhập viện " + daystr+ "/" + mstr + "/" + d.getFullYear());
 
 // lấy ID
 $("#btn-tracuu").click(function(){
@@ -124,6 +124,14 @@ fetch(postAPI)
       $("#dayon").text(ngay_nhap_vien_gan_nhat)
       // console.log(positionDieutrigannhat)
       // console.log(lichsuDieutri);
+      if(post[maID-1].nhap_xuat === "Đang điều trị") {
+        $("#dien_bien").css("background-color","#00ff00")
+        // console.log("Đang điều trị")
+      } else {
+        $("#dien_bien").css("background-color","#ff2f43")
+        $("#dien_bien").css("color","white")
+        // console.log("Nhập viện không châm cứu hoặc đã xuất viện")
+      }
       $("#btn-diemdanh").click(function(){
         var url ="https://script.google.com/macros/s/AKfycbws243WFFTpVpRNWwrGEjrcWVKlb_4tnlT9BIq_-MpmPCfobbvdu_YehviKypTfZzH2Pw/exec"
         
@@ -228,7 +236,7 @@ fetch(postAPI)
  $("#btn-nhiem-vu").click(function(){
   text = "";
   for (let a = 0; a < results.length; a++) {
-    text += a+1 + ") "+results[a].ho_va_ten+ "<a class='openHSBA' href="+"'"+results[a].hosobenhan+"'"+"target="+'"_blank"'+">"+'<i title = "Mở hồ sơ bệnh án" class="fa-solid fa-id-card"></i>'+"</a>"+"<a class='openHSBA' href="+"'"+results[a].phieudieutri+"'"+"target="+'"_blank"'+">"+'<i title = "Mở phiếu thực hiện kỹ thuật" class="fa-solid fa-calendar-check"></i>'+"</a>" + "<br>";
+    text +="<div class="+"'div-xuong-ho-so'"+"><div>"+ (a+1) + ") "+results[a].ho_va_ten+"</div>"+"<div><a class='openHSBA' href="+"'"+results[a].hosobenhan+"'"+"target="+'"_blank"'+">"+'<i title = "Mở hồ sơ bệnh án" class="fa-solid fa-id-card"></i>'+"</a>"+"<a class='openHSBA' href="+"'"+results[a].phieudieutri+"'"+"target="+'"_blank"'+">"+'<i title = "Mở phiếu thực hiện kỹ thuật" class="fa-solid fa-calendar-check"></i>'+"</a></div></div>"+"<hr>";
   }
   //console.log(text)
   document.getElementById("ds-xuong-ho-so").innerHTML =text;

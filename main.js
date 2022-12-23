@@ -87,12 +87,12 @@ fetch(postAPI)
             ';20);9) = "Xuất viện";right(J' +
             (post.length + 2) +
             ';20);"Nhập viện không châm cứu"))',
-            bacsidieutri : '=ARRAYFORMULA(TEXTJOIN(" | ";TRUE;IF(diemdanh!$A:A = A' +
+            bacsidieutri : '=CONCATENATE(G'+(post.length + 2)+';'+'"'+' | '+'"'+';'+'ARRAYFORMULA(TEXTJOIN(" | ";TRUE;IF(diemdanh!$A:A = A' +
             (post.length + 2) +
-            ' ; diemdanh!K:K ; "")))',
-            chandoan : '=ARRAYFORMULA(TEXTJOIN(" | ";TRUE;IF(diemdanh!$A:A = A' +
+            ' ; diemdanh!K:K ; ""))))',
+            chandoan : '=CONCATENATE(I'+(post.length + 2)+';'+'"'+' | '+'"'+';'+'ARRAYFORMULA(TEXTJOIN(" | ";TRUE;IF(diemdanh!$A:A = A' +
             (post.length + 2) +
-            ' ; diemdanh!L:L ; "")))'
+            ' ; diemdanh!L:L ; ""))))'
         };
         $.ajax({
           url: urlthemthongtin,
@@ -120,17 +120,33 @@ fetch(postAPI)
       $("#dien_bien").text(post[maID - 1].nhap_xuat);
       $("#days").text(post[maID - 1].lich_su);
       $("#chan-doan").text(post[maID - 1].ghi_chu_2);
-      $("#bacsi").text(post[maID - 1].phan_loai);
+      // $("#bacsi").text(post[maID - 1].phan_loai);
       $("#masohoso").text("Mã số : " + post[maID - 1].id);
       // document.getElementById("phieudieutri-1").innerHTML = post[maID-1].phieudieutri
       $("#hosobenhan").attr("href", post[maID - 1].hosobenhan);
       $("#phieudieutri").attr("href", post[maID - 1].phieudieutri);
       var lichsuDieutri = document.getElementById("days").innerText;
-
       var positionDieutrigannhat = lichsuDieutri.lastIndexOf("Nhập viện"); //Nhập viện 08/10/2022 : 20 ký tự
       var dieutriGannhat = lichsuDieutri.slice(positionDieutrigannhat);
       $("#dieutrigannhat").text(dieutriGannhat);
       var ngay_nhap_vien_gan_nhat = dieutriGannhat.slice(0, 20);
+      // Lịch sử bác sĩ điều trị
+      var lichsuBacsi = post[maID-1].bacsidieutri;
+      var positionBacsigannhat = lichsuBacsi.lastIndexOf("Bác sĩ");
+      var bacsiGannhat = lichsuBacsi.slice(positionBacsigannhat);
+      // Sửa chẩn đoán
+      var lichsuChandoan = post[maID-1].chandoan
+      var positionChandoangannhat = lichsuChandoan.lastIndexOf("|");
+      var chandoanGannhat = lichsuChandoan.slice((positionChandoangannhat+1))
+      console.log(chandoanGannhat)
+      if(chandoanGannhat === ""){
+        chandoanGannhat = lichsuChandoan.slice(0,positionChandoangannhat)
+        $("#chan-doan").text(chandoanGannhat);
+      } else {
+        $("#chan-doan").text(chandoanGannhat);
+      }
+      
+      $("#bacsi").text(bacsiGannhat)
       //console.log("Vị trí điều trị gần nhất : "+positionDieutrigannhat+" /Nhập viện :" + ngay_nhap_vien_gan_nhat)
       //console.log("Chuỗi điều trị gần nhất = " + dieutriGannhat)
       $("#dayon").text(ngay_nhap_vien_gan_nhat);
@@ -150,7 +166,7 @@ fetch(postAPI)
         let vaLbacsi = bacsi.value;
         let vaLchandoanmoi = chandoanmoi.value;
         if (
-          vaLbacsi === "" ||
+          vaLbacsi === "" &&
           vaLchandoanmoi === ""
         ) {
           alert("Vui lòng điền đầy đủ và chính xác thông tin bệnh nhân !");
@@ -178,8 +194,7 @@ fetch(postAPI)
         alert("Dữ liệu đã được cập nhật");
         }
       }
-      )
-    
+      );
       $("#btn-diemdanh").click(function () {
         var url =
           "https://script.google.com/macros/s/AKfycbws243WFFTpVpRNWwrGEjrcWVKlb_4tnlT9BIq_-MpmPCfobbvdu_YehviKypTfZzH2Pw/exec";
@@ -351,7 +366,3 @@ fetch(dieutri_nhap_xuatvienAPI)
     document.getElementById("total_profile_xuat").innerHTML =
       xuatvien_today.length;
   });
-
-$("#btn-chart").click(function () {
-  alert("Biểu đồ thống kê đang phát triển !");
-});

@@ -265,13 +265,13 @@
     <script src="./main.js"></script>
     <script src="./laydanhsach.js"></script>
     <script src="./tinhtrang.js"> </script>
-    <script type="text/javascript">
-    var pictureSrc ="http://webquangnam.com/jsShare/hoadao.png"; //the location of the snowflakes
-var pictureWidth = 20; //the width of the snowflakes
-var pictureHeight = 20; //the height of the snowflakes
-var numFlakes = 10; //the number of snowflakes
-var downSpeed = 0.01; //the falling speed of snowflakes (portion of screen per 100 ms)
-var lrFlakes = 10; //the speed that the snowflakes should swing from side to side
+    <script type="text/javascript"><script type='text/javascript'>
+var pictureSrc ="https://1.bp.blogspot.com/-CXx9jt2JMRk/Vq-Lh5fm88I/AAAAAAAASwo/XivooDn_oSY/s1600/hoamai.png"; //Link ảnh hoa muốn hiển thị trên web
+var pictureWidth = 15; //Chiều rộng của hoa mai or đào
+var pictureHeight = 15; //Chiều cao của hoa mai or đào
+var numFlakes = 10; //Số bông hoa xuất hiện cùng một lúc trên trang web
+var downSpeed = 0.01; //Tốc độ rơi của hoa
+var lrFlakes = 10; //Tốc độ các bông hoa giao động từ bên trai sang bên phải và ngược lại
 
 
 if( typeof( numFlakes ) != 'number' || Math.round( numFlakes ) != numFlakes || numFlakes < 1 ) { numFlakes = 10; }
@@ -281,7 +281,7 @@ for( var x = 0; x < numFlakes; x++ ) {
 if( document.layers ) { //releave NS4 bug
 document.write('<layer id="snFlkDiv'+x+'"><imgsrc="'+pictureSrc+'" height="'+pictureHeight+'"width="'+pictureWidth+'" alt="*" border="0"></layer>');
 } else {
-document.write('<div style="position:absolute; z-index:9999;" id="snFlkDiv'+x+'"><img src="'+pictureSrc+'"height="'+pictureHeight+'" width="'+pictureWidth+'" alt="*"border="0"></div>');
+document.write('<div style="position:absolute; z-index:9999;"id="snFlkDiv'+x+'"><img src="'+pictureSrc+'"height="'+pictureHeight+'" width="'+pictureWidth+'" alt="*"border="0"></div>');
 }
 }
 
@@ -328,7 +328,9 @@ if( document.all ) { return document.all[divName]; } //Proprietary DOM - IE4
 return false;
 }
 
-window.setInterval('flakeFall();',100);</script>
+window.setInterval('flakeFall();',100);
+
+</script></script>
 </body>
 
 </html>

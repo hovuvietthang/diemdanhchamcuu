@@ -139,10 +139,12 @@ fetch(postAPI)
       var positionChandoangannhat = lichsuChandoan.lastIndexOf("|");
       var chandoanGannhat = lichsuChandoan.slice((positionChandoangannhat+1))
       console.log(chandoanGannhat)
-      if(chandoanGannhat === ""){
+      if(chandoanGannhat === " "){
+        console.log('Bieu thuc dung')
         chandoanGannhat = lichsuChandoan.slice(0,positionChandoangannhat)
         $("#chan-doan").text(chandoanGannhat);
       } else {
+        console.log('Bieu thuc sai')
         $("#chan-doan").text(chandoanGannhat);
       }
       
@@ -163,11 +165,14 @@ fetch(postAPI)
       $("#btn-gui-sua-benh-an").click(function()  {
         let bacsi = document.getElementById("form-sua-bacsi")
         let chandoanmoi = document.getElementById("sua-chan-doan")
+        let dienbienlamsang = document.getElementById("them-dien-bien-lam-sang");
+        let vaLdienbienlamsang = dienbienlamsang.value;
         let vaLbacsi = bacsi.value;
         let vaLchandoanmoi = chandoanmoi.value;
         if (
           vaLbacsi === "" &&
-          vaLchandoanmoi === ""
+          vaLchandoanmoi === "" &&
+          vaLdienbienlamsang === ""
         ) {
           alert("Vui lòng điền đầy đủ và chính xác thông tin bệnh nhân !");
         } else {
@@ -181,7 +186,7 @@ fetch(postAPI)
           phieudieutri: post[maID - 1].phieudieutri,
           hosobenhan: post[maID - 1].hosobenhan,
           bacsidieutri : vaLbacsi,
-          chandoan : vaLchandoanmoi
+          chandoan : vaLchandoanmoi + vaLdienbienlamsang
         };
         // console.log(data)
 
@@ -231,6 +236,8 @@ fetch(postAPI)
           xuat_vien: "Xuất viện ",
           phieudieutri: post[maID - 1].phieudieutri,
           hosobenhan: post[maID - 1].hosobenhan,
+          bacsidieutri : "Bác sĩ [Chưa chỉ định]",
+          chandoan : "Sửa chẩn đoán mới"
         };
 
         $.ajax({
@@ -304,6 +311,7 @@ fetch(postAPI)
           ") " +
           results[a].ho_va_ten +
           "</div>" +
+          "<div>"+results[a].tuoi+"</div>"+
           "<div><a class='openHSBA' href=" +
           "'" +
           results[a].hosobenhan +

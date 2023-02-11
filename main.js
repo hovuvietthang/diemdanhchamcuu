@@ -92,7 +92,8 @@ fetch(postAPI)
             ' ; diemdanh!K:K ; ""))))',
             chandoan : '=CONCATENATE(I'+(post.length + 2)+';'+'"'+' | '+'"'+';'+'ARRAYFORMULA(TEXTJOIN(" | ";TRUE;IF(diemdanh!$A:A = A' +
             (post.length + 2) +
-            ' ; diemdanh!L:L ; ""))))'
+            ' ; diemdanh!L:L ; ""))))',
+            hosobenhan : '=VLOOKUP(A'+(post.length + 2)+';'+'khobenhanvaphieudieutri!A:C;2;0)'
         };
         $.ajax({
           url: urlthemthongtin,
@@ -309,7 +310,7 @@ fetch(postAPI)
           "><div>" +
           (a + 1) +
           ") " +
-          results[a].ho_va_ten +
+          results[a].ho_va_ten + " ("+results[a].id+")"+
           "</div>" +
           "<div>"+results[a].tuoi+"</div>"+
           "<div><a class='openHSBA' href=" +

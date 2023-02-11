@@ -23,10 +23,10 @@
 
 <body>
   <div class="container">
-    <h1 class="tieudeweb">ĐIỂM DANH CHÂM CỨU</h1>
+    <h1 class="container tieudeweb">QUẢN LÝ HỒ SƠ CHÂM CỨU NHI</h1>
   </div>
   <div class="container">
-    <input id="tags" class="form-control" type="search" placeholder="Họ và tên bệnh nhân" required spellcheck="false"
+    <input id="tags" class="form-control" type="search" placeholder="Họ và tên hoặc ID" required spellcheck="false"
       autocomplete="off">
     <script>
       var inforAPI = "https://script.google.com/macros/s/AKfycbxH-wJUqFE_2Q9Fta3DpgsUsqkRxQUi3kjQJjg_oTHbTF_s0i0hCuOCTlijU_FgEG_cDg/exec";
@@ -54,24 +54,33 @@
   <div class="container btn btn-submit">
     <button title="Tra cứu thông tin" type="submit" id="btn-tracuu" class="btn btn-primary" data-bs-toggle="offcanvas"
       data-bs-target="#infor-benh-nhan"><i class="fa-solid fa-magnifying-glass"></i></button>
-    <button title="Xuất danh sách" type="submit" class="btn btn-primary" id="btn-xuat-danh-sach"
+    <button title="Xuất danh sách Điều trị - Nhập viện - Xuất viện" type="submit" class="btn btn-primary" id="btn-xuat-danh-sach"
       data-bs-toggle="offcanvas" data-bs-target="#xuat-danh-sach"><i class="fa-solid fa-download"></i></button>
     <button title="Thêm dữ liệu bệnh nhân mới" type="submit" class="btn btn-primary" id="btn-benh-nhan-moi"
       data-bs-toggle="offcanvas" data-bs-target="#benh-nhan-moi"><i class="fa-solid fa-user-plus"></i></button>
-    <button title="Tra cứu thông tin" type="submit" id="btn-nhiem-vu" class="btn btn-primary" data-bs-toggle="offcanvas"
+    <button title="Danh sách bệnh nhân đang điều trị cần hoàn thành hồ sơ" type="submit" id="btn-nhiem-vu" class="btn btn-primary" data-bs-toggle="offcanvas"
       data-bs-target="#nhiem-vu"><i class="fa-solid fa-list-ol"></i></button>
+      <div class="btn-group">
+        <button title = "Lấy mẫu bệnh án thường gặp" type="button" class="btn btn-primary dropdown-toggle" id="btn-mau-benh-an" data-bs-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" target="_blank" href="#">Trẻ chậm nói</a>
+          <a class="dropdown-item" target="_blank" href="#">Trẻ diễn đạt kém</a>
+          <a class="dropdown-item" target="_blank" href="#">Bại não</a>
+          <a class="dropdown-item" target="_blank" href="#">Tổn thương tủy sống</a>
+          <a class="dropdown-item" target="_blank" href="#">Liệt Bell</a>
+        </div>
+       </div> 
     <!-- <button title = "tag nhiệm vụ" type = "submit" class="btn btn-primary" id="btn-nhiem-vu" data-bs-toggle="offcanvas" data-bs-target="#nhiem-vu-1"><i class="fa-solid fa-list-ol"></i></button> -->
     <!-- <button title = "mở biểu đồ, thống kê"type = "submit" class="btn btn-primary" id="btn-chart" data-bs-toggle="offcanvas"data-bs-target="#chart"><i class="fa-solid fa-chart-line"></i></button> -->
-
   </div>
   <div class="div_total_profile">
-    <p class="total_profile"><i class="fa-solid fa-address-card"></i><span class="span_total_profile"
+    <p title =" Tổng số hồ sơ đang điều trị"class="total_profile"><i class="fa-solid fa-address-card"></i><span class="span_total_profile"
         id="total_profile"> </span></p>
-    <p class="total_profile"><i class="fa-solid fa-map-pin"></i><span class="span_total_profile"
+    <p title="Tổng số bệnh nhân châm cứu hôm nay"class="total_profile"><i class="fa-solid fa-map-pin"></i><span class="span_total_profile"
         id="total_profile_dieutri"> </span></p>
-    <p class="total_profile"><i class="fa-solid fa-user-plus"></i><span class="span_total_profile"
+    <p title="Tổng số bệnh nhân nhập viện hôm nay"class="total_profile"><i class="fa-solid fa-user-plus"></i><span class="span_total_profile"
         id="total_profile_nhap"> </span></p>
-    <p class="total_profile"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i><span
+    <p title="Tổng số bệnh nhân xuất viện hôm nay"class="total_profile"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i><span
         class="span_total_profile" id="total_profile_xuat"> </span></p>
   </div>
   <!-- <div id="chart1" style="min-width: 310px; height: 400px; margin: 0 auto"></div> -->
@@ -193,13 +202,13 @@
 
         <!-- Text input -->
         <div class="form-outline mb-1">
-          <input type="date" id="form-date" class="form-control" placeholder="Ngày nhập viện" autocomplete="off" />
+          <input title= "Nhập ngày tháng"type="date" id="form-date" class="form-control" placeholder="Ngày nhập viện" autocomplete="off" />
         </div>
         <!-- Text input -->
         <div class="form-outline mb-1">
           <select name="bac-si-dieu-tri" id="form-phan-loai" class="form-control">
             <option value="">--Chọn bác sĩ điều trị--</option>
-            <option value="Bác sĩ Dũng">Bác sĩ Tâm</option>
+            <option value="Bác sĩ Tâm">Bác sĩ Tâm</option>
             <option value="Bác sĩ Na">Bác sĩ Na</option>
             <option value="Bác sĩ Vũ">Bác sĩ Vũ</option>
           </select>

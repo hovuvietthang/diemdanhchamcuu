@@ -1588,7 +1588,7 @@ p {
 #btn-benh-nhan-moi,
 #btn-nhiem-vu,
 #btn-chart {
-  width: 10%;
+  width: 15%;
   height: 100%;
   margin: 3px;
 }
@@ -1600,11 +1600,12 @@ p {
   text-align: center;
 }
 .btn-submit {
-  display: block;
+  display: flex;
   width: 100%;
   flex-direction: row;
   justify-content: center;
   border-radius: 50px;
+  align-items: center
 }
 .infor-text {
   margin-left: 5px;

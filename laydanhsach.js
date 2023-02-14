@@ -29,6 +29,7 @@ fetch(postAPI)
           (a + 1) +
           ") " +
           results[a].ho_va_ten +
+          " -MS:" + results[a].id +
           "</div>" +
           "<div><a class='openHSBA' href=" +
           "'" +

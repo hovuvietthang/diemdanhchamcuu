@@ -17,9 +17,11 @@ fetch(postAPI)
       for (var i = 0; i < post.length; i++) {
         if (post[i][searchField] == searchVal) {
           results.push(post[i]);
+          results.sort((a, b) => a.id - b.id)
         }
       }
-      //console.log(results)
+      console.log(results)
+
       text = "";
       for (let a = 0; a < results.length; a++) {
         text +=
@@ -74,6 +76,7 @@ fetch(postAPI)
       for (var i = 0; i < post.length; i++) {
         if (post[i][searchField] == searchVal) {
           results.push(post[i]);
+          results.sort((a, b) => a.id - b.id)
         }
       }
       //console.log(results)

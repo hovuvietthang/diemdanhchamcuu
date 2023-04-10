@@ -368,8 +368,16 @@ fetch(dieutri_nhap_xuatvienAPI)
       }
     }
     // console.log(dieutri);
-
-    document.getElementById("total_profile_dieutri").innerHTML = dieutri.length;
+    let uniqueResult_dieutrihomnay =  [];
+      let ids = [];
+      for(let i = 0; i < dieutri.length; i++) {
+        let currentID = dieutri[i].id;
+        if(!ids.includes(currentID)) {
+          uniqueResult_dieutrihomnay.push(dieutri[i]);
+          ids.push(currentID);
+        }
+      }
+    document.getElementById("total_profile_dieutri").innerHTML = uniqueResult_dieutrihomnay.length;
     document.getElementById("total_profile_nhap").innerHTML =
       nhapvien_today.length;
     document.getElementById("total_profile_xuat").innerHTML =

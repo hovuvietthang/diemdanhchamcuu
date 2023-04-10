@@ -20,22 +20,37 @@ fetch(postAPI)
           results.sort((a, b) => a.id - b.id)
         }
       }
-      console.log(results)
+      
+      let uniqueResult =  [];
+      let ids = [];
+      for(let i = 0; i < results.length; i++) {
+        let currentID = results[i].id;
+        if(!ids.includes(currentID)) {
+          uniqueResult.push(results[i]);
+          ids.push(currentID);
+        }
+      }
+      
+      uniqueResult.sort((a, b) => a.id - b.id);
+      
+      // console.log(uniqueResult);
+
+      // console.log(results)
 
       text = "";
-      for (let a = 0; a < results.length; a++) {
+      for (let a = 0; a < uniqueResult.length; a++) {
         text +=
           "<div class=" +
           "'div-lay-ds'" +
           "><div>" +
           (a + 1) +
           ") " +
-          results[a].ho_va_ten +
-          " -MS:" + results[a].id +
+          uniqueResult[a].ho_va_ten +
+          " -MS:" + uniqueResult[a].id +
           "</div>" +
           "<div><a class='openHSBA' href=" +
           "'" +
-          results[a].hosobenhan +
+          uniqueResult[a].hosobenhan +
           "'" +
           "target=" +
           '"_blank"' +
@@ -44,7 +59,7 @@ fetch(postAPI)
           "</a>" +
           "<a class='openHSBA' href=" +
           "'" +
-          results[a].phieudieutri +
+          uniqueResult[a].phieudieutri +
           "'" +
           "target=" +
           '"_blank"' +
